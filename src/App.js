@@ -84,11 +84,11 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <h1 className="App-title">Welcome to React</h1>
+          <h1 className="App-title">Investments & Insurance Graph</h1>
         </header>
 
         <LineChart width={600} height={300} data={data}
-                    margin={{top: 5, right: 30, left: 20, bottom: 5}}>
+                    margin={{top: 5, right: 30, left: 20, bottom: 5}} className="Chart">
                <XAxis dataKey="name"/>
                <YAxis/>
                <CartesianGrid strokeDasharray="3 3"/>
