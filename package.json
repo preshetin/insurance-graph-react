@@ -1,5 +1,6 @@
 {
   "name": "insurance-graph-react",
+  "homepage" : "http://preshetin.github.io/insurance-graph-react",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
