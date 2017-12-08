@@ -26,7 +26,7 @@ const prepareData = (chartParams) => {
 }
 
 const getPlanStart = (chartParams) => {
-  return Math.round(chartParams.initialInvestment + chartParams.pacMinusInsuranceCost * 12);
+  return parseInt(chartParams.initialInvestment) + chartParams.pacMinusInsuranceCost * 12;
 }
 
 const getOurPlanContinue = (age, prevData, chartParams) => {
