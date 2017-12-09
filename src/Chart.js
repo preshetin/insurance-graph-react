@@ -1,5 +1,5 @@
 import React from 'react'
-import {LineChart, Label, ReferenceDot, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend} from 'recharts'
+import {LineChart, ResponsiveContainer,  Label, ReferenceDot, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend} from 'recharts'
 import prepareData from './prepareData'
 
 
@@ -7,10 +7,13 @@ class Chart extends React.Component {
   render() {
 
     const data = prepareData(this.props.chartParams);
+    console.log(data);
 
     return (
-      <LineChart width={600} height={300} data={data}
-                  margin={{top: 5, right: 30, left: 20, bottom: 5}} className="Chart">
+      <LineChart width={900} height={400} data={data}
+                  margin={{top: 5, right: 30, left: 20, bottom: 5}}
+                  style={{margin : "0 auto"}}
+                   >
              <XAxis dataKey="name" />
              <YAxis domain={[0, 1000000]}  />
              <CartesianGrid strokeDasharray="3 3"/>

@@ -1,5 +1,7 @@
 const prepareData = (chartParams) => {
 
+  chartParams.pacMinusInsuranceCost = getPacMinusInsuranceCost(chartParams);
+
   let ages = Array.from(Array(65).keys()).slice(30);
   let data = [];
 
@@ -74,6 +76,10 @@ const getMutualFundsContinue = (age, prevData, chartParams) => {
   }
 
   return result;
+}
+
+const getPacMinusInsuranceCost = (chartParams) => {
+  return chartParams.pacMonth - chartParams.primaryCICost * chartParams.includePrimaryCIInsurace - chartParams.secondaryCICost * chartParams.insculdSecondaryCIInsurance;
 }
 
 export default prepareData
