@@ -1,5 +1,6 @@
 import React from 'react'
 import {LineChart, ResponsiveContainer,  Label, ReferenceDot, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend} from 'recharts'
+import {Panel} from 'react-bootstrap/lib';
 import prepareData from './prepareData';
 import TotalInvestmentLabel from './TotalInvestmentLabel'
 
@@ -11,6 +12,7 @@ class Chart extends React.Component {
     const showAtIndex = parseInt(this.props.chartParams.retirementAge) - parseInt(this.props.chartParams.currentAge) - 1;
 
     return (
+      <Panel>
       <div style={{  width: '100%', height: '400px' }}>
         <ResponsiveContainer>
           <LineChart width={900} height={400} data={data}
@@ -27,6 +29,7 @@ class Chart extends React.Component {
           </LineChart>
         </ResponsiveContainer>
       </div>
+      </Panel>
     );
   }
 }

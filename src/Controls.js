@@ -1,6 +1,7 @@
 import React from 'react';
-import BulmaInput from './BulmaInput';
-import BulmaCheckbox from './BulmaCheckbox';
+import { Panel, Grid, Row, Col } from 'react-bootstrap/lib';
+import BootInput from './BootInput';
+import BootCheckbox from './BootCheckbox';
 
 class Controls extends React.Component {
 
@@ -76,29 +77,33 @@ class Controls extends React.Component {
 
   render() {
     return (
-      <div>
-        <div className="columns" style={{ border: "1px solid lightgray" }}>
-          <div className="column">
-            <BulmaInput name="Initial Investment"  value={this.props.params.initialInvestment} handleChange={this.handleInitialInvestmentChange} addon="$" />
-            <BulmaInput name="PAC / Month"         value={this.props.params.pacMonth}          handleChange={this.handlePacMonthChange} addon="$" />
-            <BulmaInput name="Primary CI Amount"   value={this.props.params.primaryCIAmount}   handleChange={this.handlePrimaryCIAmountChange} addon="$" />
-            <BulmaInput name="Secondary CI Amount" value={this.props.params.secondaryCIAmount} handleChange={this.handleSecondaryCIAmountChange} addon="$" />
-          </div>
-          <div className="column">
-            <BulmaInput name="Current Age" value={this.props.params.currentAge} handleChange={this.handleCurrentAgeChange} />
-            <BulmaInput name="Retirement Age" value={this.props.params.retirementAge} handleChange={this.handleRetirementAgeChange} />
-            <BulmaInput name="Portfolio Fees" value={this.props.params.ourFees} handleChange={this.handleOurFeesChange} addon="%" />
-            <BulmaInput name="Mutual Funds Fees" value={this.props.params.theirFees} handleChange={this.handleTheirFeesChange} addon="%" />
-            <BulmaInput name="Rate of Return" value={this.props.params.rateOfReturn} handleChange={this.handleRateOfReturnChange} addon="%" />
-          </div>
-          <div className="column">
-            <BulmaCheckbox name="Include Primary CI Insurance"   value={this.props.params.includePrimaryCIInsurance}   handleChange={this.handleIncludePrimaryCIInsuranceChange} />
-            <BulmaCheckbox name="Include Secondary CI Insurance" value={this.props.params.includeSecondaryCIInsurance} handleChange={this.handleIncludeSecondaryCIInsuranceChange} />
-            <BulmaCheckbox name="Primary Illness" value={this.props.params.primaryIllness} handleChange={this.handlePrimaryIllnessChange} />
-            <BulmaCheckbox name="Secondary Illness" value={this.props.params.secondaryIllness} handleChange={this.handleSecondaryIllnessChange} />
-          </div>
-        </div>
-      </div>
+      <Panel>
+      <Grid>
+          <Row className="show-grid">
+            <Col md={4}>
+
+              <BootInput name="Initial Investment"  value={this.props.params.initialInvestment} handleChange={this.handleInitialInvestmentChange} addon="$" />
+              <BootInput name="PAC / Month"         value={this.props.params.pacMonth}          handleChange={this.handlePacMonthChange} addon="$" />
+              <BootInput name="Primary CI Amount"   value={this.props.params.primaryCIAmount}   handleChange={this.handlePrimaryCIAmountChange} addon="$" />
+              <BootInput name="Secondary CI Amount" value={this.props.params.secondaryCIAmount} handleChange={this.handleSecondaryCIAmountChange} addon="$" />
+
+            </Col>
+            <Col md={4}>
+              <BootInput name="Current Age" value={this.props.params.currentAge} handleChange={this.handleCurrentAgeChange} />
+              <BootInput name="Retirement Age" value={this.props.params.retirementAge} handleChange={this.handleRetirementAgeChange} />
+              <BootInput name="Portfolio Fees" value={this.props.params.ourFees} handleChange={this.handleOurFeesChange} addon="%" />
+              <BootInput name="Mutual Funds Fees" value={this.props.params.theirFees} handleChange={this.handleTheirFeesChange} addon="%" />
+              <BootInput name="Rate of Return" value={this.props.params.rateOfReturn} handleChange={this.handleRateOfReturnChange} addon="%" />
+            </Col>
+            <Col md={4}>
+              <BootCheckbox name="Include Primary CI Insurance"   value={this.props.params.includePrimaryCIInsurance}   handleChange={this.handleIncludePrimaryCIInsuranceChange} />
+              <BootCheckbox name="Include Secondary CI Insurance" value={this.props.params.includeSecondaryCIInsurance} handleChange={this.handleIncludeSecondaryCIInsuranceChange} />
+              <BootCheckbox name="Primary Illness" value={this.props.params.primaryIllness} handleChange={this.handlePrimaryIllnessChange} />
+              <BootCheckbox name="Secondary Illness" value={this.props.params.secondaryIllness} handleChange={this.handleSecondaryIllnessChange} />
+            </Col>
+          </Row>
+        </Grid>
+        </Panel>
     );
   }
 }

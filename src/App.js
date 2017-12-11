@@ -1,23 +1,13 @@
-import 'bulma/css/bulma.css';
 import React, { Component } from 'react';
 import './App.css';
+import Header from './Header';
 import ParametricChart from './ParametricChart';
 
 const App = () => {
   return (
     <div className="App">
-      <section className="nav" style={{ margin: "15px 0 0 0" }}>
-        <div className="container has-text-centered">
-          <h1 className="title ">
-            Investments & Insurance Graph
-          </h1>
-        </div>
-      </section>
-      <div className="section" >
-        <div className="container">
-          <ParametricChart />
-        </div>
-      </div>
+      <Header />
+      <ParametricChart />
     </div>
   );
 }

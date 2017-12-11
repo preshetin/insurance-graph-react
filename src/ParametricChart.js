@@ -102,27 +102,32 @@ class ParametricChart extends React.Component {
 
   render() {
     return (
-      <div>
-        <Chart chartParams={this.state.chartParams} />
-        <Controls
-          params={this.state.chartParams}
 
-          onInitialInvestmentChange={this.handleInitialInvestmentChange}
-          onPacMonthChange={this.handlePacMonthChange}
-          onPrimaryCIAmountChange={this.handlePrimaryCIAmountChange}
-          onSecondaryCIAmountChange={this.handleSecondaryCIAmountChange}
-          onCurrentAgeChange={this.handleCurrentAgeChange}
-          onRetirementAgeChange={this.handleRetirementAgeChange}
-          onOurFeesChange={this.handleOurFeesChange}
-          onTheirFeesChange={this.handleTheirFeesChange}
-          onRateOfReturnChange={this.handleRateOfReturnChange}
-          onIncludePrimaryCIInsuranceChange={this.handleIncludePrimaryCIInsuranceChange}
-          onIncludeSecondaryCIInsuranceChange={this.handleIncludeSecondaryCIInsuranceChange}
-          onPrimaryIllnessChange={this.handlePrimaryIllnessChange}
-          onSecondaryIllnessChange={this.handleSecondaryIllnessChange}
+      <main role="main" class="container">
 
-          />
+      <div >
+      <Chart chartParams={this.state.chartParams} />
+      <Controls
+        params={this.state.chartParams}
+
+        onInitialInvestmentChange={this.handleInitialInvestmentChange}
+        onPacMonthChange={this.handlePacMonthChange}
+        onPrimaryCIAmountChange={this.handlePrimaryCIAmountChange}
+        onSecondaryCIAmountChange={this.handleSecondaryCIAmountChange}
+        onCurrentAgeChange={this.handleCurrentAgeChange}
+        onRetirementAgeChange={this.handleRetirementAgeChange}
+        onOurFeesChange={this.handleOurFeesChange}
+        onTheirFeesChange={this.handleTheirFeesChange}
+        onRateOfReturnChange={this.handleRateOfReturnChange}
+        onIncludePrimaryCIInsuranceChange={this.handleIncludePrimaryCIInsuranceChange}
+        onIncludeSecondaryCIInsuranceChange={this.handleIncludeSecondaryCIInsuranceChange}
+        onPrimaryIllnessChange={this.handlePrimaryIllnessChange}
+        onSecondaryIllnessChange={this.handleSecondaryIllnessChange}
+
+        />
       </div>
+
+      </main>
     );
   }
 }
