@@ -11,14 +11,14 @@ class Chart extends React.Component {
     const showAtIndex = parseInt(this.props.chartParams.retirementAge) - parseInt(this.props.chartParams.currentAge) - 1;
 
     return (
-      <div style={{  width: '100%', height: '400px', }}>
+      <div style={{  width: '100%', height: '400px' }}>
         <ResponsiveContainer>
           <LineChart width={900} height={400} data={data}
-                      margin={{top: 5, right: 30, left: 20, bottom: 5}}
+                      margin={{top: 25, right: 30, left: 30, bottom: 25}}
                       style={{margin : "0 auto"}}
                        >
                  <XAxis dataKey="name" />
-                 <YAxis domain={[0, 1000000]}  />
+                 <YAxis domain={[0, 'auto']}  />
                  <CartesianGrid strokeDasharray="3 3"/>
                  <Tooltip/>
                  <Legend />

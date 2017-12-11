@@ -6,9 +6,9 @@ import ParametricChart from './ParametricChart';
 const App = () => {
   return (
     <div className="App">
-      <section className="nav">
+      <section className="nav" style={{ margin: "15px 0 0 0" }}>
         <div className="container has-text-centered">
-          <h1 className="title">
+          <h1 className="title ">
             Investments & Insurance Graph
           </h1>
         </div>

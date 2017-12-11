@@ -77,7 +77,7 @@ class Controls extends React.Component {
   render() {
     return (
       <div>
-        <div className="columns">
+        <div className="columns" style={{ border: "1px solid lightgray" }}>
           <div className="column">
             <BulmaInput name="Initial Investment"  value={this.props.params.initialInvestment} handleChange={this.handleInitialInvestmentChange} addon="$" />
             <BulmaInput name="PAC / Month"         value={this.props.params.pacMonth}          handleChange={this.handlePacMonthChange} addon="$" />
