@@ -42,7 +42,7 @@ const getOurPlanContinue = (age, prevData, chartParams) => {
     if (age === chartParams.illnessEventDate && !chartParams.includePrimaryCIInsurace) {
       two = chartParams.primaryIllness * chartParams.primaryCIAmount;
 
-      if ( ! chartParams.insculdSecondaryCIInsurance) {
+      if ( ! chartParams.includeSecondaryCIInsurance) {
         three = chartParams.secondaryIllness * chartParams.secondaryCIAmount;
       }
     }
@@ -79,7 +79,7 @@ const getMutualFundsContinue = (age, prevData, chartParams) => {
 }
 
 const getPacMinusInsuranceCost = (chartParams) => {
-  return chartParams.pacMonth - chartParams.primaryCICost * chartParams.includePrimaryCIInsurace - chartParams.secondaryCICost * chartParams.insculdSecondaryCIInsurance;
+  return chartParams.pacMonth - chartParams.primaryCICost * chartParams.includePrimaryCIInsurace - chartParams.secondaryCICost * chartParams.includeSecondaryCIInsurance;
 }
 
 export default prepareData

@@ -9,6 +9,7 @@ class Controls extends React.Component {
     this.handleInitialInvestmentChange = this.handleInitialInvestmentChange.bind(this);
     this.handlePacMonthChange          = this.handlePacMonthChange.bind(this);
     this.handlePrimaryCIAmountChange   = this.handlePrimaryCIAmountChange.bind(this);
+    this.handleSecondaryCIAmountChange = this.handleSecondaryCIAmountChange.bind(this);
   }
 
   handleRateOfReturnChange(e) {
@@ -26,6 +27,11 @@ class Controls extends React.Component {
   handlePrimaryCIAmountChange(e) {
     this.props.onPrimaryCIAmountChange(e.target.value);
   }
+
+  handleSecondaryCIAmountChange(e) {
+    this.props.onSecondaryCIAmountChange(e.target.value);
+  }
+
 /*
 <label>Rate of Return</label>
 <input type="number" value={this.props.rateOfReturn} onChange={this.handleRateOfReturnChange}  placeholder="Rate of Return" />
@@ -35,9 +41,10 @@ class Controls extends React.Component {
       <div>
         <div className="columns">
           <div className="column">
-            <BulmaInput name="Initial Investment" value={this.props.params.initialInvestment} handleChange={this.handleInitialInvestmentChange} addon="$" />
-            <BulmaInput name="PAC / Month"        value={this.props.params.pacMonth}          handleChange={this.handlePacMonthChange} addon="$" />
-            <BulmaInput name="Primary CI Amount"  value={this.props.params.primaryCIAmount}   handleChange={this.handlePrimaryCIAmountChange} addon="$" />
+            <BulmaInput name="Initial Investment"  value={this.props.params.initialInvestment} handleChange={this.handleInitialInvestmentChange} addon="$" />
+            <BulmaInput name="PAC / Month"         value={this.props.params.pacMonth}          handleChange={this.handlePacMonthChange} addon="$" />
+            <BulmaInput name="Primary CI Amount"   value={this.props.params.primaryCIAmount}   handleChange={this.handlePrimaryCIAmountChange} addon="$" />
+            <BulmaInput name="Secondary CI Amount" value={this.props.params.secondaryCIAmount} handleChange={this.handleSecondaryCIAmountChange} addon="$" />
           </div>
           <div className="column">
             Second column
