@@ -16,14 +16,14 @@ class ParametricChart extends React.Component {
         secondaryCICost: 47,
         includePrimaryCIInsurace: true,
         includeSecondaryCIInsurance: true,
-        currentAgeYongest: 30,
-        currentAgeOldest: 65,
+        currentAge: 30,
+        retirementAge: 65,
         rateOfReturn: 0.05,
         ourFees: 0.005,
         theirFees: 0.023,
         primaryIllness: 1,
         secondaryIllness: 1,
-        illnessEventDate: 47 // remove: calculate from others
+        // illnessEventDate: 47 // remove: calculate from others
       }
     }
 
@@ -32,6 +32,8 @@ class ParametricChart extends React.Component {
     this.handlePacMonthChange          = this.handlePacMonthChange.bind(this);
     this.handlePrimaryCIAmountChange   = this.handlePrimaryCIAmountChange.bind(this);
     this.handleSecondaryCIAmountChange = this.handleSecondaryCIAmountChange.bind(this);
+    this.handleCurrentAgeChange = this.handleCurrentAgeChange.bind(this);
+    this.handleRetirementAgeChange = this.handleRetirementAgeChange.bind(this);
   }
 
   handleRateOfReturnChange(rateOfReturn) {
@@ -54,6 +56,14 @@ class ParametricChart extends React.Component {
     this.setChartParam('secondaryCIAmount', secondaryCIAmount);
   }
 
+  handleCurrentAgeChange(currentAge) {
+    this.setChartParam('currentAge', currentAge);
+  }
+
+  handleRetirementAgeChange(retirementAge) {
+    this.setChartParam('retirementAge', retirementAge);
+  }
+
   setChartParam(paramName, value) {
     let state = this.state;
     state.chartParams[paramName] = value;
@@ -72,6 +82,8 @@ class ParametricChart extends React.Component {
           onPacMonthChange={this.handlePacMonthChange}
           onPrimaryCIAmountChange={this.handlePrimaryCIAmountChange}
           onSecondaryCIAmountChange={this.handleSecondaryCIAmountChange}
+          onCurrentAgeChange={this.handleCurrentAgeChange}
+          onRetirementAgeChange={this.handleRetirementAgeChange}
 
           />
       </div>

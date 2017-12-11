@@ -8,6 +8,8 @@ class Chart extends React.Component {
 
     const data = prepareData(this.props.chartParams);
 
+    const showAtIndex = parseInt(this.props.chartParams.retirementAge) - parseInt(this.props.chartParams.currentAge) - 1; 
+
     return (
       <LineChart width={900} height={400} data={data}
                   margin={{top: 5, right: 30, left: 20, bottom: 5}}
@@ -18,8 +20,8 @@ class Chart extends React.Component {
              <CartesianGrid strokeDasharray="3 3"/>
              <Tooltip/>
              <Legend />
-             <Line type="monotone" dataKey="ourPlan" points={[{x: 12, y: 12, value: 240}]} stroke="#82ca9d" label={<TotalInvestmentLabel />} />
-             <Line type="monotone" dataKey="mutualFunds" stroke="#8884d8" label={<TotalInvestmentLabel />}/>
+             <Line type="monotone" dataKey="ourPlan" points={[{x: 12, y: 12, value: 240}]} stroke="#82ca9d" label={<TotalInvestmentLabel showAtIndex={showAtIndex} />} />
+             <Line type="monotone" dataKey="mutualFunds" stroke="#8884d8" label={<TotalInvestmentLabel showAtIndex={showAtIndex} />}/>
       </LineChart>
     );
   }

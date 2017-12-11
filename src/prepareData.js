@@ -1,14 +1,16 @@
 const prepareData = (chartParams) => {
 
   chartParams.pacMinusInsuranceCost = getPacMinusInsuranceCost(chartParams);
+  chartParams.illnessEventDate = getIllnessEventDate(chartParams);
 
-  let ages = Array.from(Array(65).keys()).slice(30);
+  let ages = Array.from(Array(parseInt(chartParams.retirementAge)).keys()).slice(parseInt(chartParams.currentAge));
+  
   let data = [];
 
   ages.forEach( age => {
     let ourPlan;
     let mutualFunds;
-    if (age === 30) {
+    if (age === parseInt(chartParams.currentAge)) {
       ourPlan     = getPlanStart(chartParams);
       mutualFunds = getPlanStart(chartParams);
     } else {
@@ -36,7 +38,7 @@ const getOurPlanContinue = (age, prevData, chartParams) => {
   let one = 0;
   let two = 0;
   let three = 0;
-  if (prevData.age < chartParams.currentAgeOldest) {
+  if (prevData.age < chartParams.retirementAge) {
      one = prevData.ourPlan * (1 + chartParams.rateOfReturn - chartParams.ourFees) + 12 * chartParams.pacMinusInsuranceCost;
 
     if (age === chartParams.illnessEventDate && !chartParams.includePrimaryCIInsurace) {
@@ -61,7 +63,7 @@ const getMutualFundsContinue = (age, prevData, chartParams) => {
   let one = 0;
   let two = 0;
 
-  if (prevData.age < chartParams.currentAgeOldest) {
+  if (prevData.age < chartParams.retirementAge) {
     one = prevData.mutualFunds * (1 + chartParams.rateOfReturn - chartParams.theirFees) + chartParams.pacMinusInsuranceCost * 12;
 
     if (age === chartParams.illnessEventDate) {
@@ -80,6 +82,11 @@ const getMutualFundsContinue = (age, prevData, chartParams) => {
 
 const getPacMinusInsuranceCost = (chartParams) => {
   return chartParams.pacMonth - chartParams.primaryCICost * chartParams.includePrimaryCIInsurace - chartParams.secondaryCICost * chartParams.includeSecondaryCIInsurance;
+}
+
+const getIllnessEventDate = (chartParams) => {
+  const result = Math.floor(parseInt(chartParams.currentAge) + (parseInt(chartParams.retirementAge) - parseInt(chartParams.currentAge)) / 2 );
+  return result;
 }
 
 export default prepareData

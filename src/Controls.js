@@ -10,6 +10,8 @@ class Controls extends React.Component {
     this.handlePacMonthChange          = this.handlePacMonthChange.bind(this);
     this.handlePrimaryCIAmountChange   = this.handlePrimaryCIAmountChange.bind(this);
     this.handleSecondaryCIAmountChange = this.handleSecondaryCIAmountChange.bind(this);
+    this.handleCurrentAgeChange = this.handleCurrentAgeChange.bind(this);
+    this.handleRetirementAgeChange = this.handleRetirementAgeChange.bind(this);
   }
 
   handleRateOfReturnChange(e) {
@@ -32,6 +34,14 @@ class Controls extends React.Component {
     this.props.onSecondaryCIAmountChange(e.target.value);
   }
 
+  handleCurrentAgeChange(e) {
+    this.props.onCurrentAgeChange(e.target.value);
+  }
+
+  handleRetirementAgeChange(e) {
+    this.props.onRetirementAgeChange(e.target.value);
+  }
+
 /*
 <label>Rate of Return</label>
 <input type="number" value={this.props.rateOfReturn} onChange={this.handleRateOfReturnChange}  placeholder="Rate of Return" />
@@ -47,7 +57,8 @@ class Controls extends React.Component {
             <BulmaInput name="Secondary CI Amount" value={this.props.params.secondaryCIAmount} handleChange={this.handleSecondaryCIAmountChange} addon="$" />
           </div>
           <div className="column">
-            Second column
+            <BulmaInput name="Current Age" value={this.props.params.currentAge} handleChange={this.handleCurrentAgeChange} />
+            <BulmaInput name="Retirement Age" value={this.props.params.retirementAge} handleChange={this.handleRetirementAgeChange} />
           </div>
           <div className="column">
             Third column
