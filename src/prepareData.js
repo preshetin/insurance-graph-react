@@ -4,7 +4,7 @@ const prepareData = (chartParams) => {
   chartParams.illnessEventDate = getIllnessEventDate(chartParams);
 
   let ages = Array.from(Array(parseInt(chartParams.retirementAge)).keys()).slice(parseInt(chartParams.currentAge));
-  
+
   let data = [];
 
   ages.forEach( age => {
@@ -39,9 +39,9 @@ const getOurPlanContinue = (age, prevData, chartParams) => {
   let two = 0;
   let three = 0;
   if (prevData.age < chartParams.retirementAge) {
-     one = prevData.ourPlan * (1 + chartParams.rateOfReturn - chartParams.ourFees) + 12 * chartParams.pacMinusInsuranceCost;
+     one = prevData.ourPlan * (1 + chartParams.rateOfReturn / 100 - chartParams.ourFees / 100) + 12 * chartParams.pacMinusInsuranceCost;
 
-    if (age === chartParams.illnessEventDate && !chartParams.includePrimaryCIInsurace) {
+    if (age === chartParams.illnessEventDate && !chartParams.includePrimaryCIInsurance) {
       two = chartParams.primaryIllness * chartParams.primaryCIAmount;
 
       if ( ! chartParams.includeSecondaryCIInsurance) {
@@ -64,7 +64,7 @@ const getMutualFundsContinue = (age, prevData, chartParams) => {
   let two = 0;
 
   if (prevData.age < chartParams.retirementAge) {
-    one = prevData.mutualFunds * (1 + chartParams.rateOfReturn - chartParams.theirFees) + chartParams.pacMinusInsuranceCost * 12;
+    one = prevData.mutualFunds * (1 + chartParams.rateOfReturn / 100 - chartParams.theirFees / 100) + chartParams.pacMinusInsuranceCost * 12;
 
     if (age === chartParams.illnessEventDate) {
       two = chartParams.primaryIllness * chartParams.primaryCIAmount + chartParams.secondaryIllness * chartParams.secondaryCIAmount;
@@ -81,7 +81,7 @@ const getMutualFundsContinue = (age, prevData, chartParams) => {
 }
 
 const getPacMinusInsuranceCost = (chartParams) => {
-  return chartParams.pacMonth - chartParams.primaryCICost * chartParams.includePrimaryCIInsurace - chartParams.secondaryCICost * chartParams.includeSecondaryCIInsurance;
+  return chartParams.pacMonth - chartParams.primaryCICost * chartParams.includePrimaryCIInsurance - chartParams.secondaryCICost * chartParams.includeSecondaryCIInsurance;
 }
 
 const getIllnessEventDate = (chartParams) => {

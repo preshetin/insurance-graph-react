@@ -1,21 +1,25 @@
 import React from 'react';
 import BulmaInput from './BulmaInput';
+import BulmaCheckbox from './BulmaCheckbox';
 
 class Controls extends React.Component {
 
   constructor(props) {
     super(props);
-    this.handleRateOfReturnChange      = this.handleRateOfReturnChange.bind(this);
+
     this.handleInitialInvestmentChange = this.handleInitialInvestmentChange.bind(this);
     this.handlePacMonthChange          = this.handlePacMonthChange.bind(this);
     this.handlePrimaryCIAmountChange   = this.handlePrimaryCIAmountChange.bind(this);
     this.handleSecondaryCIAmountChange = this.handleSecondaryCIAmountChange.bind(this);
     this.handleCurrentAgeChange = this.handleCurrentAgeChange.bind(this);
     this.handleRetirementAgeChange = this.handleRetirementAgeChange.bind(this);
-  }
-
-  handleRateOfReturnChange(e) {
-    this.props.onRateOfReturnChange(e.target.value);
+    this.handleOurFeesChange = this.handleOurFeesChange.bind(this);
+    this.handleTheirFeesChange = this.handleTheirFeesChange.bind(this);
+    this.handleRateOfReturnChange      = this.handleRateOfReturnChange.bind(this);
+    this.handleIncludePrimaryCIInsuranceChange      = this.handleIncludePrimaryCIInsuranceChange.bind(this);
+    this.handleIncludeSecondaryCIInsuranceChange      = this.handleIncludeSecondaryCIInsuranceChange.bind(this);
+    this.handlePrimaryIllnessChange      = this.handlePrimaryIllnessChange.bind(this);
+    this.handleSecondaryIllnessChange      = this.handleSecondaryIllnessChange.bind(this);
   }
 
   handleInitialInvestmentChange(e) {
@@ -42,10 +46,34 @@ class Controls extends React.Component {
     this.props.onRetirementAgeChange(e.target.value);
   }
 
-/*
-<label>Rate of Return</label>
-<input type="number" value={this.props.rateOfReturn} onChange={this.handleRateOfReturnChange}  placeholder="Rate of Return" />
-*/
+  handleOurFeesChange(e) {
+    this.props.onOurFeesChange(e.target.value);
+  }
+
+  handleTheirFeesChange(e) {
+    this.props.onTheirFeesChange(e.target.value);
+  }
+
+  handleRateOfReturnChange(e) {
+    this.props.onRateOfReturnChange(e.target.value);
+  }
+
+  handleIncludePrimaryCIInsuranceChange(e) {
+    this.props.onIncludePrimaryCIInsuranceChange(e.target.checked);
+  }
+
+  handleIncludeSecondaryCIInsuranceChange(e) {
+    this.props.onIncludeSecondaryCIInsuranceChange(e.target.checked);
+  }
+
+  handlePrimaryIllnessChange(e) {
+    this.props.onPrimaryIllnessChange(e.target.checked);
+  }
+
+  handleSecondaryIllnessChange(e) {
+    this.props.onSecondaryIllnessChange(e.target.checked);
+  }
+
   render() {
     return (
       <div>
@@ -59,9 +87,15 @@ class Controls extends React.Component {
           <div className="column">
             <BulmaInput name="Current Age" value={this.props.params.currentAge} handleChange={this.handleCurrentAgeChange} />
             <BulmaInput name="Retirement Age" value={this.props.params.retirementAge} handleChange={this.handleRetirementAgeChange} />
+            <BulmaInput name="Portfolio Fees" value={this.props.params.ourFees} handleChange={this.handleOurFeesChange} addon="%" />
+            <BulmaInput name="Mutual Funds Fees" value={this.props.params.theirFees} handleChange={this.handleTheirFeesChange} addon="%" />
+            <BulmaInput name="Rate of Return" value={this.props.params.rateOfReturn} handleChange={this.handleRateOfReturnChange} addon="%" />
           </div>
           <div className="column">
-            Third column
+            <BulmaCheckbox name="Include Primary CI Insurance"   value={this.props.params.includePrimaryCIInsurance}   handleChange={this.handleIncludePrimaryCIInsuranceChange} />
+            <BulmaCheckbox name="Include Secondary CI Insurance" value={this.props.params.includeSecondaryCIInsurance} handleChange={this.handleIncludeSecondaryCIInsuranceChange} />
+            <BulmaCheckbox name="Primary Illness" value={this.props.params.primaryIllness} handleChange={this.handlePrimaryIllnessChange} />
+            <BulmaCheckbox name="Secondary Illness" value={this.props.params.secondaryIllness} handleChange={this.handleSecondaryIllnessChange} />
           </div>
         </div>
       </div>
